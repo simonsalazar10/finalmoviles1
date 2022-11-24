@@ -13,8 +13,8 @@ public class Main {
         int opcion;
 
         do{
-            System.out.println("menu\n");
-            System.out.println("1. Agregar un jugador: \n2. Buscar un jugador por número: \n3.  Editar información de un jugador: \n4. Mostrar toda la convocatoria de jugadores: \n5. Salir");
+            System.out.println("MENU\n");
+            System.out.println("1.Agregar un jugador: \n2.Buscar un jugador por numero: \n3.Editar informacion de un jugador: \n4.Mostrar toda la convocatoria de jugadores: \n5.Salir");
 
             System.out.println("Digita una opcion del menu: ");
             opcion= entradaPorTeclado.nextInt();
@@ -23,7 +23,7 @@ public class Main {
                 case 1:
                     if(jugadores.size()<23) {
                         Jugador objetoJugador = new Jugador();
-                        System.out.print("ingrese numero de jugador: ");
+                        System.out.print("Ingrese numero de jugador: ");
 
                         int numeroDeJugador = entradaPorTeclado.nextInt();
                         boolean validar = false;
@@ -36,7 +36,7 @@ public class Main {
                                 validar=false;
                             }
                         }if (validar){
-                            System.out.println("numero ya existente, porfavor digite otro numero");
+                            System.out.println("Numero ya existente, porfavor digite otro numero");
                         }else {
                             objetoJugador.setNumeroDeCamisa(numeroDeJugador);
                             System.out.print("Digite el nombre del jugador: ");
@@ -54,7 +54,7 @@ public class Main {
 
                         }
                     }else{
-                        System.out.println("no hay mas cupo");
+                        System.out.println("No hay mas cupo");
                     }
                     break;
                 case 2:
@@ -66,12 +66,12 @@ public class Main {
                     for (Jugador jugador: jugadores){
                         if (jugador.getNumeroDeCamisa()== buscarPorNumero){
 
-                            System.out.println("el numero de la camisa es: " + jugador.getNumeroDeCamisa());
-                            System.out.println("el nombre del jugador es: " + jugador.getNombre());
-                            System.out.println("el apellido del jugador es: " + jugador.getApellidos());
-                            System.out.println("la posicion del jugador es: " + jugador.getPosicion());
-                            System.out.println("la edad del jugador es: " + jugador.getEdad());
-                            System.out.println("el equipo es: " + jugador.getEquipo());
+                            System.out.println("El numero de la camisa es: " + jugador.getNumeroDeCamisa());
+                            System.out.println("El nombre del jugador es: " + jugador.getNombre());
+                            System.out.println("El apellido del jugador es: " + jugador.getApellidos());
+                            System.out.println("La posicion del jugador es: " + jugador.getPosicion());
+                            System.out.println("La edad del jugador es: " + jugador.getEdad());
+                            System.out.println("El equipo es: " + jugador.getEquipo());
 
                             noSeDetectaElJugador=false;
                             break;
@@ -79,21 +79,21 @@ public class Main {
                             noSeDetectaElJugador=true;
                         }
                     }if (noSeDetectaElJugador){
-                    System.out.println("jugador no encontrado");
+                    System.out.println("JUGADOR NO EXISTENTE!!!");
                 }else {
-                    System.out.println("FELICIDADES!!! se encontro jugador");
+                    System.out.println("\nFELICIDADES!!! se encontro jugador");
                 }break;
                 case 3:
                     int editarInformacion;
-                    System.out.print("numero de la camisa del jugador que quiere editar: ");
+                    System.out.print("Numero de la camisa del jugador que quiere editar: ");
                     editarInformacion= entradaPorTeclado.nextInt();
 
                     int optionEditar;
                     for (Jugador jugador:jugadores){
                         if (jugador.getNumeroDeCamisa()== editarInformacion){
-                            System.out.println("jugador encontrado: ");
+                            System.out.println("Jugador encontrado: ");
                             do {
-                                System.out.println("1. editar numero de camiseta \n2. editar nombres \n3.  editar apellido \n4. editar posicion \n5. editar edad \n 6. editar equipo \n 7. finalizar edicion");
+                                System.out.println("1.Editar numero de camiseta \n2.Editar nombres \n3.Editar apellido \n4.Editar posicion \n5.Editar edad \n6.Editar equipo \n7.Finalizar edicion");
                                 System.out.println("Digite una opcion: ");
                                 optionEditar= entradaPorTeclado.nextInt();
                                 switch (optionEditar){
@@ -103,10 +103,10 @@ public class Main {
                                         editarNumero= entradaPorTeclado.nextInt();
                                         for (Jugador validarJugador:jugadores){
                                             if (validarJugador.getNumeroDeCamisa()== editarNumero){
-                                                System.out.println("jugador ya existente");
+                                                System.out.println("Jugador ya existente");
                                             }else {
                                                 jugador.setNumeroDeCamisa(editarNumero);
-                                                System.out.println("edicion exitosa!!!");
+                                                System.out.println("Edicion exitosa!!!");
                                             }
                                         }break;
                                     case 2:
@@ -131,34 +131,34 @@ public class Main {
                                         jugador.setEquipo(entradaPorTeclado.next());
                                         break;
                                     case 7:
-                                        System.out.print("salir de la edicion");
+                                        System.out.print("Salir de la edicion");
                                         break;
 
                                     default:
-                                        System.out.println("opcion no existente");
+                                        System.out.println("Opcion no existente");
                                 }
                             }while (optionEditar !=7);
                         }else {
-                            System.out.println("jugador no existente");
+                            System.out.println("Jugador no existente");
                         }
                     }break;
                 case 4:
-                    System.out.println("listado de jugadores: ");
+                    System.out.println("Listado de jugadores: ");
                     for (Jugador jugador: jugadores){
-                        System.out.println("informacion");
-                        System.out.println("el jugador: " + jugador.getNumeroDeCamisa());
-                        System.out.println("nombre: " + jugador.getNombre());
-                        System.out.println("apellido: " + jugador.getApellidos());
-                        System.out.println("posicion: " + jugador.getPosicion());
-                        System.out.println("edad: " + jugador.getEdad());
-                        System.out.println("equipo: " + jugador.getEquipo());
+                        System.out.println("Informacion");
+                        System.out.println("El jugador: " + jugador.getNumeroDeCamisa());
+                        System.out.println("Nombre: " + jugador.getNombre());
+                        System.out.println("Apellido: " + jugador.getApellidos());
+                        System.out.println("Posicion: " + jugador.getPosicion());
+                        System.out.println("Edad: " + jugador.getEdad());
+                        System.out.println("Equipo: " + jugador.getEquipo());
                     }break;
                 case 5:
-                    System.out.println("fin de la ejecucion");
+                    System.out.println("Fin de la ejecucion");
                     break;
 
                 default:
-                    System.out.println("opcion no valida");
+                    System.out.println("Opcion no valida");
             }
 
         }while (opcion !=5);
